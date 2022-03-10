@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks: 
+      - name: High CPU consuming process
+        shell: >
+                   ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+
+        register: result
+
+      - name: show result
+        debug:
+          var: result
+...
