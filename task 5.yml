@@ -1,0 +1,11 @@
+- hosts: all
+  tasks: 
+      - name: to checkthe no of runnig taks
+        shell: >
+                   ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head
+
+        register: result
+
+      - name: show result
+        debug:
+          var: result

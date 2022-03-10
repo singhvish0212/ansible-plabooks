@@ -1,0 +1,16 @@
+- name: Example of variable
+  hosts: all
+  vars:
+    - webpkg: httpd
+   
+
+  tasks: 
+    - name: Install httpd
+      yum:
+         name: "{{ webpkg}}"
+         state: installed
+
+    - name: debugging
+      debug: 
+          msg: "{{ webpkg }} is installed correctly"
+       

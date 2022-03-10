@@ -1,0 +1,10 @@
+- hosts: centos
+  tasks: 
+      - name: to check httpd service running or not
+        command: systemctl status httpd
+        register: result
+
+      - name: showing report
+        debug:
+           var: result 
+     
